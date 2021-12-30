@@ -1,0 +1,47 @@
+style.
+  .navbar-brand {
+    font-size: 25px;
+    font-weight: 700 !important;
+    font-family: monospace;
+  }
+  .navbarColor {
+    background-color: #deb887;
+    box-shadow: 0 5px 7px 3px rgb(32 33 36 / 28%);
+  }
+nav.navbar.navbar-expand-lg.navbar-light.navbarColor
+  a.navbar-brand(href="/") MYAPP
+  button.navbar-toggler(
+    type="button",
+    data-toggle="collapse",
+    data-target="#navbarSupportedContent",
+    aria-controls="navbarSupportedContent",
+    aria-expanded="false",
+    aria-label="Toggle navigation"
+  )
+    span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item.active
+        a.nav-link(href="/")
+          | Home
+          span.sr-only (current)
+      li.nav-item
+        a.nav-link(href="#") 
+          | Link
+      li.nav-item.dropdown
+        a#navbarDropdown.nav-link.dropdown-toggle(
+          href="#",
+          role="button",
+          data-toggle="dropdown",
+          aria-haspopup="true",
+          aria-expanded="false"
+        )
+          | Choice
+        .dropdown-menu(aria-labelledby="navbarDropdown")
+          a.dropdown-item(href="/inputForm") Input Form
+          a.dropdown-item(href="/anotherAction") Another action
+          .dropdown-divider
+          a.dropdown-item(href="/axios") Something else here
+          a.dropdown-item(href="/listOfValue") List of value
+    .form-inline.my-2.my-lg-0
+      i.bi.bi-people

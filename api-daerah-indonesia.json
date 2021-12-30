@@ -1,0 +1,216 @@
+{
+	"info": {
+		"_postman_id": "dd3abf20-3087-484e-ad4b-08b733cc35e0",
+		"name": "API-DAERAH-NKRI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List-Provinsi",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dev.farizdotid.com/api/daerahindonesia/provinsi",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"farizdotid",
+						"com"
+					],
+					"path": [
+						"api",
+						"daerahindonesia",
+						"provinsi"
+					]
+				},
+				"description": "untuk mengambil list provinsi"
+			},
+			"response": []
+		},
+		{
+			"name": "Detail-Provinsi",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dev.farizdotid.com/api/daerahindonesia/provinsi/32",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"farizdotid",
+						"com"
+					],
+					"path": [
+						"api",
+						"daerahindonesia",
+						"provinsi",
+						"32"
+					]
+				},
+				"description": "untuk mengambil list provinsi"
+			},
+			"response": []
+		},
+		{
+			"name": "List-City",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dev.farizdotid.com/api/daerahindonesia/kota?id_provinsi=32",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"farizdotid",
+						"com"
+					],
+					"path": [
+						"api",
+						"daerahindonesia",
+						"kota"
+					],
+					"query": [
+						{
+							"key": "id_provinsi",
+							"value": "32"
+						}
+					]
+				},
+				"description": "untuk mengambil list provinsi"
+			},
+			"response": []
+		},
+		{
+			"name": "Detail-City",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dev.farizdotid.com/api/daerahindonesia/kota/3273",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"farizdotid",
+						"com"
+					],
+					"path": [
+						"api",
+						"daerahindonesia",
+						"kota",
+						"3273"
+					]
+				},
+				"description": "untuk mengambil list provinsi"
+			},
+			"response": []
+		},
+		{
+			"name": "List-District",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dev.farizdotid.com/api/daerahindonesia/kecamatan?id_kota=3273",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"farizdotid",
+						"com"
+					],
+					"path": [
+						"api",
+						"daerahindonesia",
+						"kecamatan"
+					],
+					"query": [
+						{
+							"key": "id_kota",
+							"value": "3273"
+						}
+					]
+				},
+				"description": "untuk mengambil list provinsi"
+			},
+			"response": []
+		},
+		{
+			"name": "Detail-District",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dev.farizdotid.com/api/daerahindonesia/kecamatan/3273130",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"farizdotid",
+						"com"
+					],
+					"path": [
+						"api",
+						"daerahindonesia",
+						"kecamatan",
+						"3273130"
+					]
+				},
+				"description": "untuk mengambil list provinsi"
+			},
+			"response": []
+		},
+		{
+			"name": "List-SubDistrich",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dev.farizdotid.com/api/daerahindonesia/kelurahan/?id_kecamatan=3273130",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"farizdotid",
+						"com"
+					],
+					"path": [
+						"api",
+						"daerahindonesia",
+						"kelurahan",
+						""
+					],
+					"query": [
+						{
+							"key": "id_kecamatan",
+							"value": "3273130"
+						}
+					]
+				},
+				"description": "untuk mengambil list provinsi"
+			},
+			"response": []
+		},
+		{
+			"name": "Detail-SubDistrich",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dev.farizdotid.com/api/daerahindonesia/kelurahan/3273130003",
+					"protocol": "https",
+					"host": [
+						"dev",
+						"farizdotid",
+						"com"
+					],
+					"path": [
+						"api",
+						"daerahindonesia",
+						"kelurahan",
+						"3273130003"
+					]
+				},
+				"description": "untuk mengambil list provinsi"
+			},
+			"response": []
+		}
+	]
+}

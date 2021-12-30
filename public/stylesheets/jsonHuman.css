@@ -1,0 +1,131 @@
+.jh-root, .jh-type-object, .jh-type-array, .jh-key, .jh-value, .jh-root tr{
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.jh-key, .jh-value{
+  margin: 0;
+  padding: 0.3em .5em;
+}
+
+.jh-value{
+  border-left: 1px solid #ddd;
+}
+
+.jh-type-number{
+  text-align: center;
+  color: #5286BC;
+}
+
+.jh-type-bool-true{
+  text-align: center;
+  color: #5A811C;
+}
+
+.jh-type-bool-false{
+  text-align: center;
+  color: #D45317;
+}
+
+.jh-type-bool-image {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  vertical-align: bottom;
+}
+
+.jh-array-key{
+  text-align: center;
+}
+
+.jh-object-key, .jh-array-key{
+  vertical-align: top;
+}
+
+.jh-type-object > tbody > tr:nth-child(odd), .jh-type-array > tbody > tr:nth-child(odd){
+  background-color: #f5f5f5;
+}
+
+.jh-type-object > tbody > tr:nth-child(even), .jh-type-array > tbody > tr:nth-child(even){
+  background-color: #fff;
+}
+
+.jh-type-object, .jh-type-array{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.jh-root{
+  border: 1px solid #ccc;
+}
+
+th.jh-key{
+  text-align: left;
+}
+
+.jh-type-object > tbody > tr, .jh-type-array > tbody > tr{
+  border: 1px solid #ddd;
+  border-bottom: none;
+}
+
+.jh-type-object > tbody > tr:last-child, .jh-type-array > tbody > tr:last-child{
+  border-bottom: 1px solid #ddd;
+}
+
+.jh-type-object > tbody > tr:hover, .jh-type-array > tbody > tr:hover{
+  border: 1px solid #ffa905;
+  background-color: #fff4de;
+}
+
+.jh-empty{
+  color: #000;
+}
+
+.jh-a {
+  text-decoration: none;
+}
+
+.jh-a:hover{
+  text-decoration: underline;
+}
+
+.jh-a span.jh-type-string {
+  text-decoration: none;
+  color : #268ddd;
+  font-style: normal;
+}
+.jsHumanOverflow {
+  overflow: scroll;
+}
+
+.jsHumanInputVariable {
+  overflow: scroll;
+  height: 200px;
+}
+
+
+tbody tr td table,
+tbody tr td table tbody tr:first-child th,
+tbody tr td table tbody tr:first-child td {
+  border-top: 0 solid red !important;
+}
+
+tbody tr td table,
+tbody tr td table:first-child,
+tbody tr td table:first-child th {
+  border-left: 0 solid red !important;
+}
+
+tbody tr td table,
+tbody tr td table tbody tr:last-child,
+tbody tr td table tbody tr:last-child th,
+tbody tr td table tbody tr:last-child td {
+  border-bottom: 0 solid red !important;
+}
+
+tbody tr td table,
+tbody tr td table tbody tr,
+tbody tr td table tbody tr td {
+  border-right: 0 solid red !important;
+}

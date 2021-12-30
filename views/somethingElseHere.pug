@@ -1,0 +1,160 @@
+extends layout
+block content
+  +breadcrumb({"Something Else Here": null}) 
+  - console.log(provinsi);
+  .main 
+    input#tab1(type="radio", name="tabs", checked="") 
+    label-tab(for="tab1") REGISTER
+    input#tab2(type="radio", name="tabs") 
+    label-tab(for="tab2") FORM INPUTAN
+    section#content1 
+      .col-md-12 
+        table.table 
+          thead 
+            tr 
+              th(scope="col") Id
+              th(scope="col") Nama
+              th(scope="col") Action
+              th(scope="col") List
+
+          tbody 
+            each i in provinsi   
+              tr
+                td#idProv= i["id"]
+                td#nameProv= i["nama"]
+                td
+                  // Button trigger modal
+                  button.btn.btn-primary(
+                    type="button",
+                    onclick=`openModal('${i["nama"]}','${i["id"]}')`
+                  )
+                    | Launch demo modal
+                td 
+                  button.btn.btn-primary(
+                    type='button',
+                    onClick=`openModalData(${i["id"]})`)
+                    | Launch demo modal
+                
+
+  #listModal.modal.fade(
+    tabindex="-1",
+    role="dialog",
+    aria-labelledby="exampleModalLabel",
+    aria-hidden="true"
+  )
+    .modal-dialog(role="document")
+      .modal-content
+        .modal-header
+          h5#exampleModalLabel.modal-title Modal title
+          button.close(type="button", data-dismiss="modal", aria-label="Close")
+            span(aria-hidden="true") &times;
+        .modal-body
+          input#inputId.form-control(
+            type="text",
+            placeholder="Username",
+            aria-label="Username",
+            aria-describedby="basic-addon1"
+          )
+
+          table.table#listKota
+            thead
+              tr
+                th(scope='col') Id
+                th(scope='col') Id Provinsi
+                th(scope='col') Nama
+                
+            tbody#tbodyKota
+
+
+        .modal-footer
+          button.btn.btn-secondary(type="button", data-dismiss="modal") Close
+          button.btn.btn-primary(type="button") Save changes
+
+
+  // Modal
+  #exampleModal.modal.fade(
+    tabindex="-1",
+    role="dialog",
+    aria-labelledby="exampleModalLabel",
+    aria-hidden="true"
+  )
+    .modal-dialog(role="document")
+      .modal-content
+        .modal-header
+          h5#exampleModalLabel.modal-title Modal title
+          button.close(type="button", data-dismiss="modal", aria-label="Close")
+            span(aria-hidden="true") &times;
+        .modal-body
+          input#inputId.form-control(
+            type="text",
+            placeholder="Username",
+            aria-label="Username",
+            aria-describedby="basic-addon1"
+          )
+
+          table.table
+            tbody
+              tr
+                th Id
+                td#label-fullName
+              tr
+                th Nama
+                td#label-description
+
+        .modal-footer
+          button.btn.btn-secondary(type="button", data-dismiss="modal") Close
+          button.btn.btn-primary(type="button") Save changes
+
+  script.
+    $(document).ready(function () {
+      let data1 = $("#nameProv").val();
+    });
+    function openModal(nama, id) {
+      $.ajax({
+        type: "GET",
+        url: "/inputForm/getData/provinsi",
+        dataType: "json",
+        data: {
+          name: nama,
+          id: id,
+        },
+        success: function (msg) {
+          $("#label-fullName").text(msg.id);
+          $("#label-description").text(msg.nama);
+          $("#inputId").val(msg.nama);
+          console.log(msg);
+          $("#exampleModal").modal("show");
+        },
+      });
+    }
+
+    function openModalData(id) {
+      $.ajax({
+        type: "GET",
+        url: "/inputForm/getData/kota",
+        dataType: "json",
+        data: {
+          id: id,
+        },
+        success: function (msg) {
+          let result = ''
+          msg.forEach(function(i){
+            result += `
+            <tr>
+            <td>${i.id}</td>
+            <td>${i.id_provinsi}</td>
+            <td>${i.nama}</td>
+            </tr>
+            `
+            //- console.log(i)
+            console.log(result)
+            $("#tbodyKota").append(result)
+          })
+            $("#listModal").modal("show");
+            
+    
+        },
+
+      });
+    }
+    

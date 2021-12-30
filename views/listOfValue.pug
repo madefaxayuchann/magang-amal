@@ -1,0 +1,64 @@
+extends layout
+block content
+  +breadcrumb({"List Of Value": null})
+  .main
+    .row 
+      .col-md-4
+        label Provinsi
+        select.form-control#listProvinsi
+      .col-md-4 
+        label Kota
+        select.form-control#listKota
+         
+      .col-md-4 
+        select.form-control#Status
+          option(selected='') Tab Here Go
+          option(value='#label-fullName') One
+          option(value='2') Two
+          option(value='3') Three
+  script.
+    $(document).ready(function () {
+      //- let data1 = $("#listProvinsi").val();
+      getProvinsi()
+    });
+    function getProvinsi(){
+      $.ajax({
+        type: "GET",
+        url: "/listOfValue/getData/provinsi",
+        dataType: "json",
+        success: function (msg) {
+          msg.provinsi.forEach(function(i){
+
+          $("#listProvinsi").append(`
+          <option>${i.nama}</option>
+          `)
+          })
+          
+        },
+      });
+    }
+    //- function openModal(nama, id) {
+    //-   let dropDown = $("Status")
+    //-   $.ajax({
+    //-     type: "GET",
+    //-     url: "/listOfValue/getData/provinsi",
+    //-     dataType: "json",
+    //-     data: {
+    //-       name: nama,
+    //-       id: id,
+    //-     },
+    //-     success: function (msg) {
+    //-       if (msg.Success) {
+    //-             var status = msg.Statuses;
+    //-             $.each(status, function (key, item) {
+    //-             dropDown.append($('<option></option>').attr('selected',(item.nama == selectednama) ?
+    //-             'selected' : undefined).attr('value', item.id).text(item.nama));
+    //-           }
+    //-       }
+    //-       $("#label-fullName").val(msg.id);
+    //-       $("#label-description").val(msg.nama);
+    //-       console.log(msg);
+    //-       $("#exampleModal").modal("show");
+    //-     },
+    //-   });
+    //- }

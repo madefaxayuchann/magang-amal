@@ -1,0 +1,219 @@
+div.dataTables_wrapper div.dataTables_info {
+  font-size: 12px;
+}
+
+.table {
+  margin: 20px;
+}
+
+.th-font{
+  font-size:13px;
+  font-family: Overpass, Rubik, sans-serif;
+  width: auto;
+  text-transform: uppercase; 
+}
+
+.sizeName{
+  font-size: 13px;
+}
+
+table.dataTable {
+  font-size: 13px;
+  border-collapse: collapse !important;
+}
+
+table.dataTable td,
+table.dataTable th {
+  vertical-align: middle;
+  border-right-width: 1px !important;
+}
+table.dataTable td:first-child,
+table.dataTable th:first-child {
+  border-left-width: 1px !important;
+}
+
+.datatable-responsive {
+  padding: 0;
+  background-color: #ffffff;
+  box-shadow: -8px 12px 18px 0 #e1e1e1;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
+
+.datatable-assessment {
+  max-width: 94%;
+  padding: 0.5px;
+  margin-right: 1% !important;
+  margin-right: -1%;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
+
+.datatable-modal-cost-center {
+  padding: 5px; 
+  margin-left: -1.5% !important;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
+
+.datatable-header {
+  padding: 10px 1px 5px 1px;
+}
+
+.datatable-footer {
+  padding: 5px 1px 10px 1px;
+}
+
+table.dataTable > thead {
+  background-color: whitesmoke;
+}
+
+table.dataTable > thead .sorting:before,
+table.dataTable > thead .sorting_asc:before,
+table.dataTable > thead .sorting_asc_disabled:before,
+table.dataTable > thead .sorting_desc:before,
+table.dataTable > thead .sorting_desc_disabled:before {
+  right: 1em;
+  content: "↑";
+}
+
+table.dataTable > thead .sorting:after,
+table.dataTable > thead .sorting_asc:after,
+table.dataTable > thead .sorting_asc_disabled:after,
+table.dataTable > thead .sorting_desc:after,
+table.dataTable > thead .sorting_desc_disabled:after {
+  right: .5em;
+  content: "↓";
+}
+
+table.dataTable > thead .sorting:after,
+table.dataTable > thead .sorting:before,
+table.dataTable > thead .sorting_asc:after,
+table.dataTable > thead .sorting_asc:before,
+table.dataTable > thead .sorting_asc_disabled:after,
+table.dataTable > thead .sorting_asc_disabled:before,
+table.dataTable > thead .sorting_desc:after,
+table.dataTable > thead .sorting_desc:before,
+table.dataTable > thead .sorting_desc_disabled:after,
+table.dataTable > thead .sorting_desc_disabled:before {
+  position: absolute;
+  bottom: .9em;
+  display: block;
+  opacity: .3;
+}
+
+table.dataTable > thead .sorting_asc:before,
+table.dataTable > thead .sorting_desc:after {
+  opacity: 1
+}
+
+table.dataTable > thead .sorting_asc_disabled:before,
+table.dataTable > thead .sorting_desc_disabled:after {
+  opacity: 0
+}
+
+table.dataTable > thead .sorting::before,
+table.dataTable > thead .sorting::after,
+table.dataTable > thead .sorting_asc::before,
+table.dataTable > thead .sorting_asc::after,
+table.dataTable > thead .sorting_asc_disabled::before,
+table.dataTable > thead .sorting_asc_disabled::after,
+table.dataTable > thead .sorting_desc::before,
+table.dataTable > thead .sorting_desc::after,
+table.dataTable > thead .sorting_desc_disabled::before,
+table.dataTable > thead .sorting_desc_disabled::after {
+  top: .6em;
+}
+
+.dt-center {
+  text-align: center
+}
+
+.dt-right {
+  text-align: right
+}
+
+.dt-nowrap {
+  white-space: nowrap
+}
+
+.dt-filter {
+  height: 2em;
+  background-color: #f5f5f5
+}
+
+.dt-additional-action {
+  cursor: pointer !important
+}
+
+.dt-column-title {
+  font-family: Overpass, Rubik, sans-serif;
+  width: auto;
+}
+
+.dt-buttons button {
+  font-family: Overpass, Rubik, sans-serif;
+  padding: 3px 10px
+}
+
+.dt-buttons .btn {
+  border-color: #cccccc;
+  background-color: #f8f9fa;
+  color: #495057;
+}
+
+div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+  font-size: 15px;
+}
+
+.dt-buttons .btn:hover {
+  background-color: #337ab7;
+  color: #fff
+}
+
+div.dataTables_processing {
+  z-index: 1000;
+}
+
+
+@media (max-width: 1090px) {
+  table.dataTable {
+    font-size: 12px;
+  }
+
+  .dt-buttons .btn {
+    font-size: 14px;
+  }
+
+  div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+    font-size: 11px;
+  }
+
+  div.dataTables_wrapper div.dataTables_info {
+    font-size: 12px;
+  }
+
+  div.dataTables_wrapper div.dataTables_length select {
+    font-size: 12px;
+  }
+}
+
+.blue-link {
+  cursor: pointer;
+  color: var(--blue) !important;
+}
+
+table.DTCR_clonedTable.dataTable{
+  position:absolute !important;
+  background-color:rgba(255, 255, 255, 0.7);
+  z-index:202
+}
+
+div.DTCR_pointer{
+  width:1px;
+  background-color:#0259c4;
+  z-index:201
+}

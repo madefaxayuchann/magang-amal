@@ -11,54 +11,138 @@ block content
         select.form-control#listKota
          
       .col-md-4 
-        select.form-control#Status
-          option(selected='') Tab Here Go
-          option(value='#label-fullName') One
-          option(value='2') Two
-          option(value='3') Three
+        label Kecamatan
+        select.form-control#listKecamatan
+
+      .col-md-4
+        label Kelurahan
+        select.form-control#listKelurahan  
+    .row 
+      .col-md-12 
+        table.table#tblKel
+          thead
+            tr
+              
+              th(scope='col') Id
+              th(scope='col') Id Kecamatan
+              th(scope='col') Nama
+          tbody
+            tr
+              
+              td#idNm 
+              td#idKec
+              td#nmNm 
+            
   script.
     $(document).ready(function () {
       //- let data1 = $("#listProvinsi").val();
       getProvinsi()
+      //- getKota()
     });
     function getProvinsi(){
       $.ajax({
         type: "GET",
-        url: "/listOfValue/getData/provinsi",
+        url: "/listOfValue/data/provinsi",
         dataType: "json",
         success: function (msg) {
           msg.provinsi.forEach(function(i){
 
           $("#listProvinsi").append(`
-          <option>${i.nama}</option>
+          <option value="${i.id}">${i.nama}</option>
           `)
           })
           
         },
       });
     }
-    //- function openModal(nama, id) {
-    //-   let dropDown = $("Status")
-    //-   $.ajax({
-    //-     type: "GET",
-    //-     url: "/listOfValue/getData/provinsi",
-    //-     dataType: "json",
-    //-     data: {
-    //-       name: nama,
-    //-       id: id,
-    //-     },
-    //-     success: function (msg) {
-    //-       if (msg.Success) {
-    //-             var status = msg.Statuses;
-    //-             $.each(status, function (key, item) {
-    //-             dropDown.append($('<option></option>').attr('selected',(item.nama == selectednama) ?
-    //-             'selected' : undefined).attr('value', item.id).text(item.nama));
-    //-           }
-    //-       }
-    //-       $("#label-fullName").val(msg.id);
-    //-       $("#label-description").val(msg.nama);
-    //-       console.log(msg);
-    //-       $("#exampleModal").modal("show");
-    //-     },
-    //-   });
-    //- }
+
+    $("#listKelurahan").on("change", function() {
+      const id = $("#listKelurahan").val()
+      getDetailKelurahan(id)
+    })
+    
+    $("#listKota").on("change", function() {
+      const id = $("#listKota").val()
+      getKecamatan(id)
+    })
+
+    $("#listKecamatan").on("change", function() {
+      const id = $("#listKecamatan").val()
+      getKelurahan(id)
+    })
+
+    $("#listProvinsi").on("change", function() {
+      const id = $("#listProvinsi").val()
+      getKota(id)
+    })
+
+    function getKota(id){
+      $.ajax({
+        type: "GET",
+        url: "listOfValue/data/kota",
+        dataType: "json",
+        data:{
+          id: id,
+        },
+        success: function (msg) {
+          msg.kota_kabupaten.forEach(function(i){
+            $("#listKota").append(`
+            <option value="${i.id}">${i.nama}</option>
+            `)
+          })
+        },
+      });
+    }
+
+    function getKecamatan(id){
+      $.ajax({
+        type: "GET",
+        url: "listOfValue/data/kecamatan",
+        dataType: "json",
+        data:{
+          id: id,
+        },
+        success: function (msg) {
+          msg.kecamatan.forEach(function(i){
+            $("#listKecamatan").append(`
+            <option value="${i.id}">${i.nama}</option>
+            `)
+          })
+        },
+      });
+    }
+
+    function getKelurahan(id){
+      $.ajax({
+        type: "GET",
+        url: "listOfValue/data/kelurahan",
+        dataType: "json",
+        data:{
+          id: id,
+        },
+        success: function (msg) {
+          msg.kelurahan.forEach(function(i){
+            $("#listKelurahan").append(`
+            <option value="${i.id}">${i.nama}</option>
+            `)
+          })
+        },
+      });
+    }
+    
+    function getDetailKelurahan(id){
+      $.ajax({
+        type: "GET",
+        url: "listOfValue/detail/kelurahan",
+        dataType: "json",
+        data:{
+          id: id,
+        },
+        success: function (i) {
+          $('#idNm').text(i.id)
+          $('#idKec').text(i.id_kecamatan)
+          $('#nmNm').text(i.nama)
+        }
+      })
+    }
+    //- 

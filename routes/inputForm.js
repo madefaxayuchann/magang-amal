@@ -22,7 +22,6 @@ router.get("/getData/provinsi", function (req, res, next) {
       "https://dev.farizdotid.com/api/daerahindonesia/provinsi/" + req.query.id
     )
     .then((resp) => {
-      console.log("masuk");
       console.log(resp);
       res.send(resp.data);
     });

@@ -15,7 +15,7 @@ router.get("/", function (req, res, next) {
     });
 });
 
-router.get("/getData/provinsi", function (req, res, next) {
+router.get("/data/provinsi", function (req, res, next) {
   axios
     .get("https://dev.farizdotid.com/api/daerahindonesia/provinsi")
     .then((resp) => {
@@ -23,7 +23,7 @@ router.get("/getData/provinsi", function (req, res, next) {
     });
 });
 
-router.get("/getData/kota", function (req, res, next) {
+router.get("/data/kota", function (req, res, next) {
   console.log(req.query);
   console.log(req.query.id);
   axios
@@ -32,8 +32,41 @@ router.get("/getData/kota", function (req, res, next) {
         req.query.id
     )
     .then((resp) => {
-      const result = resp.data.kota_kabupaten;
-      res.send(result);
+      res.send(resp.data);
+    });
+});
+
+router.get("/data/kecamatan", function (req, res, next) {
+  console.log(req.query);
+  console.log(req.query.id);
+  axios
+    .get(
+      "https://dev.farizdotid.com/api/daerahindonesia/kecamatan?id_kota=" +
+        req.query.id
+    )
+    .then((resp) => {
+      res.send(resp.data);
+    });
+});
+
+router.get("/data/kelurahan", function (req, res, next) {
+  axios
+    .get(
+      "https://dev.farizdotid.com/api/daerahindonesia/kelurahan/?id_kecamatan=" +
+        req.query.id
+    )
+    .then((resp) => {
+      res.send(resp.data);
+    });
+});
+
+router.get("/detail/kelurahan", function (req, res, next) {
+  axios
+    .get(
+      "https://dev.farizdotid.com/api/daerahindonesia/kelurahan/" + req.query.id
+    )
+    .then((resp) => {
+      return res.send(resp.data);
     });
 });
 

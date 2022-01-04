@@ -1,0 +1,27 @@
+extends layout
+block content
+  +breadcrumb({"User ": null})
+  .main
+    input#person-1(type='text' placeholder='Person 1')
+    input#person2(type='text' placeholder='Person 2')
+    button#btn Search
+    pre.
+      \n          
+        
+  script.
+    const btn = document.getElementById("btn");
+    const code = document.getElementById("code");
+    const person1 = document.getElementById("person1");
+    const person2 = document.getElementById("person2");
+    btn.addEventListener("click", async () => {
+      code.innerText = "loading";
+      const res = await fetch(
+        `/get?person1=${encodeURIComponent(
+        person1.value
+        )}
+        &person2=${encodeURIComponent(person2.value)}`
+      );
+      const json = await res.json();
+      code.innerText = "\\n" + JSON.stringify(json, null, 4);
+    });
+

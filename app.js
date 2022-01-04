@@ -3,6 +3,7 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+// var neo4j = require("neo4j");
 
 var indexRouter = require("./routes/index");
 var inputFormRouter = require("./routes/inputForm");
@@ -10,6 +11,7 @@ let anotherActionRouter = require("./routes/anotherAction");
 let somethingElseHereRouter = require("./routes/somethigElseHere");
 let axiosRouter = require("./routes/axios");
 let listOfValueRouter = require("./routes/listOfValue");
+let userRouter = require("./routes/user");
 
 var app = express();
 
@@ -29,7 +31,7 @@ app.use("/anotherAction", anotherActionRouter);
 app.use("/somethingElseHere", somethingElseHereRouter);
 app.use("/axios", axiosRouter);
 app.use("/listOfValue", listOfValueRouter);
-
+app.use("/user", userRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

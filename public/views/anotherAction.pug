@@ -1,0 +1,54 @@
+extends layout
+block content
+  +breadcrumb({"Another Action": null})
+  .main
+    input#tab1(type="radio", name="tabs", checked="")
+    label-tab(for="tab1") REGISTER
+    input#tab2(type="radio", name="tabs")
+    label-tab(for="tab2") FORM INPUTAN
+    section#content1
+      .col-md-12
+        table.table
+          thead
+            tr
+              th.row-index Select
+              th.text-center Nama
+              th.text-center Usia
+              tbody#tbody
+
+      tbody#tbody 
+      button#addBtn.btn.btn-md.btn-primary(type="button")
+        | Add new Row
+      button#delete-row.btn.btn-danger.float-right(type="button") Remove Row
+
+  script.
+    var rowIdx = 0;
+
+    $("#delete-row").click(function () {
+      $("table tbody")
+        .find('input[name="record"]')
+        .each(function () {
+          if ($(this).is(":checked")) {
+            $(this).parents("tr").remove();
+          }
+        });
+    });
+
+    $("#addBtn").on("click", function () {
+      $(document).ready(function () {
+        $('input[name="record"]').show();
+      });
+      $("#tbody").append(`<tr>
+        <td class="row-index">
+         <input type='checkbox' name='record'>
+        </td>
+            
+        <td class="text-center">
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </td>
+
+        <td class="text-center">
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </td>
+        </tr>`);
+    });
